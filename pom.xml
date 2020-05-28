@@ -31,6 +31,22 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				    <cloudHubDeployment>
+						<muleVersion>${mule.version}</muleVersion>
+						<artifact>${artifact}</artifact>
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<applicationName>${anypoint.applicationName}</applicationName>
+						<environment>${cloudhub.env}</environment>
+						<region>${cloudhub.region}</region>
+						<workerType>${cloudhub.workerType}</workerType>
+						<workers>${cloudhub.workers}</workers>
+						<properties>
+						  <mule.env>${anypoint.mule.environment}</mule.env>
+						  <anypoint.platform.client_id>${cloudhub.env.client_id}</anypoint.platform.client_id>
+					        <anypoint.platform.client_secret>${cloudhub.env.client_secret}</anypoint.platform.client_secret>
+						</properties>
+					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>

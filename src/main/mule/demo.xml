@@ -6,16 +6,16 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="850adb7a-bc5a-4974-9beb-96347b1e0d64" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
+		<http:listener-connection host="0.0.0.0" port="8085" />
 	</http:listener-config>
 	<flow name="demoFlow" doc:id="d212665a-dcf9-4b6a-bb32-cf704dccf92b" >
-		<http:listener doc:name="Listener" doc:id="6d0aee5c-aa95-413c-b71e-0b8311cd5d7e" config-ref="HTTP_Listener_config" path="/api/test"/>
+		<http:listener doc:name="Listener" doc:id="6d0aee5c-aa95-413c-b71e-0b8311cd5d7e" config-ref="HTTP_Listener_config" path="/api/demo"/>
 		<ee:transform doc:name="Transform Message" doc:id="b3bcb2dc-3abb-4756-85cf-4617d359d9d7" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
-payload]]></ee:set-payload>
+result: "successfully executed at  :" ++ now()]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>
